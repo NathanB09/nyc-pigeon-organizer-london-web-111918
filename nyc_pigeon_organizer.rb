@@ -15,7 +15,7 @@ def nyc_pigeon_organizer(data)
         #   end
         # else
         #   pigeon_list[name] = {attribute => [info.to_s]}
-        end
+        # end
       end
     end
   end
