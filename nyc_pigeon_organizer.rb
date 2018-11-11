@@ -4,18 +4,15 @@ def nyc_pigeon_organizer(data)
   data.each do |attribute, value|
     value.each do |info, pigeons|
       pigeons.each do |name|
-        pigeon_list[name] ||= {}
-        pigeon_list[name][attribute] ||= []
-        pigeon_list[name][attribute] << info.to_s
-        # if pigeon_list.include?(name)
-        #   if pigeon_list[name].include?(attribute)
-        #     pigeon_list[name][attribute] << info.to_s
-        #   else
-        #     pigeon_list[name][attribute] = [info.to_s]
-        #   end
-        # else
-        #   pigeon_list[name] = {attribute => [info.to_s]}
-        # end
+        if pigeon_list.include?(name)
+          if pigeon_list[name].include?(attribute)
+            pigeon_list[name][attribute] << info.to_s
+          else
+            pigeon_list[name][attribute] = [info.to_s]
+          end
+        else
+          pigeon_list[name] = {attribute => [info.to_s]}
+        end
       end
     end
   end
